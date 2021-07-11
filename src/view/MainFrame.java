@@ -58,10 +58,6 @@ public class MainFrame extends JFrame implements TableObserver {
         super.setLocationRelativeTo(null);
     }
 
-    @Override
-    public void message(String message) {
-        JOptionPane.showMessageDialog(this, message);
-    }
 
     @Override
     public synchronized void roadMeshUpdate() {

@@ -237,11 +237,7 @@ public class MeshController {
     }
 
 
-    public void notifyMessage(String message) {
-        for (TableObserver observer : observers) {
-            observer.message(message);
-        }
-    }
+
 
 
     public void notifyRoadMeshUpdate() {
