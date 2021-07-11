@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import controller.IMeshController;
 import controller.MeshController;
 import controller.observer.*;
 
@@ -15,7 +14,7 @@ public class MainFrame extends JFrame implements Observer {
 
     private static final long serialVersionUID = 1L;
 
-    private IMeshController meshController;
+    private MeshController meshController;
     private RoadMeshPanel roadMeshPanel;
     private JPanel main;
 

@@ -12,12 +12,12 @@ import model.RoadItem;
 public class Simulation extends Thread {
 
     private Queue<Car> cars;
-    private IMeshController meshController;
+    private MeshController meshController;
     private RoadItem[][] matrix;
     private volatile boolean running;
 
 
-    public Simulation(IMeshController meshController) {
+    public Simulation(MeshController meshController) {
         this.meshController = meshController;
         this.cars = new LinkedList<>();
     }

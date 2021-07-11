@@ -1,6 +1,5 @@
 package view;
 
-import controller.IMeshController;
 import controller.MeshController;
 
 import javax.swing.*;
@@ -10,7 +9,7 @@ import java.io.File;
 public class FileChooser extends JFileChooser {
 
 	private static final long serialVersionUID = 1L;
-	private IMeshController meshController;
+	private MeshController meshController;
 
     public FileChooser() {
         try {

@@ -1,6 +1,5 @@
 package view;
 
-import controller.IMeshController;
 import controller.MeshController;
 
 import javax.swing.*;
@@ -31,7 +30,7 @@ public class RoadMeshPanel extends JPanel {
         }
     }
 
-    private IMeshController meshController;
+    private MeshController meshController;
     private JTable roadMesh;
 
     public RoadMeshPanel() {
@@ -56,10 +55,6 @@ public class RoadMeshPanel extends JPanel {
         roadMesh.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         roadMesh.setIntercellSpacing(new Dimension(0, 0));
         roadMesh.setDefaultRenderer(Object.class, new RoadMeshItemRender());
-    }
-
-    public int getHeigth() {
-        return (int) roadMesh.getMaximumSize().getHeight();
     }
 
 

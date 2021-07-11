@@ -1,6 +1,5 @@
 package model;
 
-import controller.IMeshController;
 import controller.MeshController;
 
 import java.util.*;
@@ -16,7 +15,7 @@ public class Car implements Runnable {
 
     private Random random;
     private RoadItem currentRoad;
-    private IMeshController meshController;
+    private MeshController meshController;
     private int velocity;
     private int amountOfChoices;
 

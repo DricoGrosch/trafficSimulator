@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-public class MeshController implements IMeshController {
+public class MeshController {
 
     private static MeshController instance;
     private List<Observer> observers;
@@ -42,7 +42,6 @@ public class MeshController implements IMeshController {
         this.terminate = false;
     }
 
-    @Override
     public void readAndCreateMatrix() {
         try {
             @SuppressWarnings("resource")
@@ -83,7 +82,7 @@ public class MeshController implements IMeshController {
         }
     }
 
-    @Override
+
     public void runSimulation() {
         this.terminate = false;
         this.simulation = new Simulation(this);
@@ -92,26 +91,22 @@ public class MeshController implements IMeshController {
         this.simulation.start();
     }
 
-    @Override
     public void addCar(Car car, int x, int y) {
         this.matrix[x][y].addCar(car);
         this.threadList.add(matrix[x][y].getCar());
         notifyRoadMeshUpdate();
     }
 
-    @Override
     public void removeCar(int x, int y) {
         this.matrix[x][y].removeCar();
         notifyRoadMeshUpdate();
     }
 
-    @Override
     public void checkCrossPont(int x, int y, int direction) {
         this.matrix[x][y].setImagePath("assets/stone.png");
         this.matrix[x][y].setDirection(direction);
     }
 
-    @Override
     public void defineRouteAndStartThread(int x, int y) {
         if (!terminate) {
             this.matrix[x][y].getCar().defineRoute(x, y);
@@ -120,13 +115,11 @@ public class MeshController implements IMeshController {
         }
     }
 
-    @Override
     public void removeThread(Car car) {
         this.simulation.addCar();
         this.threadList.remove(car);
     }
 
-    @Override
     public void checkEntryPointOnTop(int x, int y, int direction) {
         if (x - 1 < 0)
             this.matrix[x][y].setEntryPoint(true);
@@ -136,7 +129,6 @@ public class MeshController implements IMeshController {
         this.matrix[x][y].setImagePath("assets/road" + direction + ".png");
     }
 
-    @Override
     public void checkEntryPointOnLeft(int x, int y, int direction) {
         if (y - 1 < 0)
             this.matrix[x][y].setEntryPoint(true);
@@ -146,7 +138,6 @@ public class MeshController implements IMeshController {
         this.matrix[x][y].setImagePath("assets/road" + direction + ".png");
     }
 
-    @Override
     public void checkEntryPointOnRight(int x, int y, int direction) {
         if (y + 1 >= this.columns)
             this.matrix[x][y].setEntryPoint(true);
@@ -156,7 +147,6 @@ public class MeshController implements IMeshController {
         this.matrix[x][y].setImagePath("assets/road" + direction + ".png");
     }
 
-    @Override
     public void checkEntryPointOnBottom(int x, int y, int direction) {
         if (x + 1 >= this.lines)
             this.matrix[x][y].setEntryPoint(true);
@@ -166,58 +156,52 @@ public class MeshController implements IMeshController {
         this.matrix[x][y].setImagePath("assets/road" + direction + ".png");
     }
 
-    @Override
     public String getMatrixPosition(int rowIndex, int columnIndex) {
         return matrix[rowIndex][columnIndex].getImagePath();
     }
 
-    @Override
     public File getFile() {
         return file;
     }
 
-    @Override
     public int getLines() {
         return lines;
     }
 
-    @Override
     public int getColumns() {
         return columns;
     }
 
-    @Override
     public int getTimeInterval() {
         return this.timeInterval;
     }
 
-    @Override
+
     public ExecutorService getExecutorService() {
         return executorService;
     }
 
-    @Override
+
     public boolean isTerminate() {
         return terminate;
     }
 
-    @Override
+
     public void setPathName(File file) {
         this.file = file;
     }
 
-    @Override
+
     public void setTerminate() {
         this.terminate = true;
     }
 
-    @Override
+
     public void setTimeInterval(int timeInterval) {
         this.timeInterval = timeInterval;
     }
 
 
-    @Override
     public boolean tryAcquire(Queue<RoadItem> positions) {
         int count = 0;
         int size = positions.size();
@@ -232,7 +216,7 @@ public class MeshController implements IMeshController {
         return count == positions.size();
     }
 
-    @Override
+
     public void release(Queue<RoadItem> positions) {
         int size = positions.size();
         for (int j = 0; j < size; j++) {
@@ -241,47 +225,46 @@ public class MeshController implements IMeshController {
         }
     }
 
-    @Override
+
     public void setNumberOfCars(int numberOfCars) {
         this.numberOfCars = numberOfCars;
     }
 
-    @Override
+
     public void setFactory(AbstractRoadItemFactory factory) {
         this.factory = factory;
     }
 
-    @Override
+
     public void addObserver(Observer observer) {
         this.observers.add(observer);
     }
 
-    @Override
+
     public void notifyMessage(String message) {
         for (Observer observer : observers) {
             observer.message(message);
         }
     }
 
-    @Override
+
     public void notifyRoadMeshUpdate() {
         for (Observer observer : observers) {
             observer.roadMeshUpdate();
         }
     }
 
-    @Override
+
     public int getNumberOfCars() {
         return this.numberOfCars;
     }
 
-    @Override
+
     public RoadItem[][] getMatrix() {
         return this.matrix;
     }
 
 
-    @Override
     public void setPositions(int x, int y, List<RoadItem> positions) {
         // TODO Auto-generated method stub
 

@@ -1,6 +1,5 @@
 package view;
 
-import controller.IMeshController;
 import controller.MeshController;
 import model.abstractfactory.RoadItemMonitorFactory;
 import model.abstractfactory.RoadItemSemaphoreFactory;
@@ -34,7 +33,7 @@ public class ChoiceFrame extends JFrame {
     private JLabel labelMechanisms;
     private JPanel mechanisms;
     private JPanel choice;
-    private IMeshController meshController;
+    private MeshController meshController;
 
     public ChoiceFrame() {
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
