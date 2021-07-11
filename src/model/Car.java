@@ -120,7 +120,7 @@ public class Car implements Runnable {
         }
     }
 
-    private void chooseCrossroad(int direction) {
+    private void chooseCrossroad(int direction) { // QUANTIDADE DE OPÇÕES DE CAMINHO QUE O CARRO PODE SEGUIR
         Random random = new Random();
         int num;
         switch (direction) {
