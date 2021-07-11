@@ -51,6 +51,7 @@ public class Simulation extends Thread {
     }
 
 
+
     public void addCar() {
         this.cars.add(new Car());
     }
