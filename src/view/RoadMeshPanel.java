@@ -1,7 +1,7 @@
-package br.udesc.dsd.rmts.view;
+package view;
 
-import br.udesc.dsd.rmts.controller.IMeshController;
-import br.udesc.dsd.rmts.controller.MeshController;
+import controller.IMeshController;
+import controller.MeshController;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

@@ -1,20 +1,14 @@
-package br.udesc.dsd.rmts.model;
+package model;
 
-import java.util.concurrent.Semaphore;
+
 import java.util.concurrent.TimeUnit;
 
 
-public class RoadSemaphore extends RoadItem {
+public class RoadMonitor extends RoadItem {
 
-    private Semaphore mutex;
-    private Semaphore full;
-    private Semaphore free;
 
-    public RoadSemaphore(int x, int y) {
+    public RoadMonitor(int x, int y) {
         super(x, y);
-        full = new Semaphore(0);
-        free = new Semaphore(1);
-        mutex = new Semaphore(1);
     }
 
     @Override
@@ -33,35 +27,35 @@ public class RoadSemaphore extends RoadItem {
         this.semaphore.release();
     }
 
-    public void addCar(Car car) {
+    public synchronized void addCar(Car car) {
         try {
-            free.acquire();
-            mutex.acquire();
+            while (super.car != null) {
+                wait();
+            }
             super.car = car;
             setCarImage();
+            notify();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            mutex.release();
-            full.release();
         }
+
     }
 
-    public void removeCar() {
+    public synchronized void removeCar() {
+
         try {
-            full.acquire();
-            mutex.acquire();
+            while (super.car == null) {
+                wait();
+            }
             super.car = null;
             if (direction > 4) {
                 setImagePath("assets/stone.png");
             } else {
                 setImagePath("assets/road" + super.direction + ".png");
             }
+            notify();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            mutex.release();
-            free.release();
         }
     }
 

@@ -1,10 +1,8 @@
-package br.udesc.dsd.rmts;
-
 import javax.swing.SwingUtilities;
 
-import br.udesc.dsd.rmts.view.ChoiceFrame;
+import view.ChoiceFrame;
 
-public class RoadMesh {
+public class Main {
     public static void main(String[] args) {
     	 SwingUtilities.invokeLater(new Runnable() {
              @Override

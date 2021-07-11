@@ -1,11 +1,9 @@
-package br.udesc.dsd.rmts.model;
+package model;
 
-import br.udesc.dsd.rmts.controller.IMeshController;
-import br.udesc.dsd.rmts.controller.MeshController;
+import controller.IMeshController;
+import controller.MeshController;
 
 import java.util.*;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 
 
 public class Car implements Runnable {

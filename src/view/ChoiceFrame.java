@@ -1,9 +1,9 @@
-package br.udesc.dsd.rmts.view;
+package view;
 
-import br.udesc.dsd.rmts.controller.IMeshController;
-import br.udesc.dsd.rmts.controller.MeshController;
-import br.udesc.dsd.rmts.model.abstractfactory.RoadItemMonitorFactory;
-import br.udesc.dsd.rmts.model.abstractfactory.RoadItemSemaphoreFactory;
+import controller.IMeshController;
+import controller.MeshController;
+import model.abstractfactory.RoadItemMonitorFactory;
+import model.abstractfactory.RoadItemSemaphoreFactory;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

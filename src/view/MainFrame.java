@@ -1,15 +1,14 @@
-package br.udesc.dsd.rmts.view;
+package view;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import br.udesc.dsd.rmts.controller.IMeshController;
-import br.udesc.dsd.rmts.controller.MeshController;
-import br.udesc.dsd.rmts.controller.observer.*;
+import controller.IMeshController;
+import controller.MeshController;
+import controller.observer.*;
 
 
 public class MainFrame extends JFrame implements Observer {
