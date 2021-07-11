@@ -36,11 +36,7 @@ public class RoadMeshPanel extends JPanel {
     public RoadMeshPanel() {
         this.meshController = MeshController.getInstance();
         this.meshController.readAndCreateMatrix();
-
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setOpaque(false);
         this.initComponents();
-        this.addComponents();
     }
 
     private void initComponents() {
@@ -55,15 +51,12 @@ public class RoadMeshPanel extends JPanel {
         roadMesh.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         roadMesh.setIntercellSpacing(new Dimension(0, 0));
         roadMesh.setDefaultRenderer(Object.class, new RoadMeshItemRender());
+        this.add(roadMesh);
     }
 
 
     public int getWidth() {
         return (int) roadMesh.getMaximumSize().getWidth();
-    }
-
-    private void addComponents() {
-        this.add(roadMesh);
     }
 
 }

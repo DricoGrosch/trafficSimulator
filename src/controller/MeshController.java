@@ -44,7 +44,6 @@ public class MeshController {
 
     public void readAndCreateMatrix() {
         try {
-            @SuppressWarnings("resource")
             Scanner input = new Scanner(file);
             while (input.hasNextInt()) {
                 lines = input.nextInt();
@@ -54,6 +53,7 @@ public class MeshController {
                     for (int j = 0; j < columns; j++) {
                         matrix[i][j] = factory.createRoad(i, j);
                         int valueOfPositionOnMesh = input.nextInt();
+                        //        verifica pontos de entrada e saída conforme o arquivo de da malha em questão
                         switch (valueOfPositionOnMesh) {
                             case 0:
                                 matrix[i][j].setImagePath("assets/default.png");
@@ -182,7 +182,6 @@ public class MeshController {
     }
 
 
-
     public void setPathName(File file) {
         this.file = file;
     }
@@ -235,9 +234,6 @@ public class MeshController {
     public void addObserver(TableObserver observer) {
         this.observers.add(observer);
     }
-
-
-
 
 
     public void notifyRoadMeshUpdate() {
