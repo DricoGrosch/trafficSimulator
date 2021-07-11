@@ -1,12 +1,12 @@
-package br.udesc.dsd.rmts.controller;
+package controller;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import br.udesc.dsd.rmts.model.Car;
-import br.udesc.dsd.rmts.model.RoadItem;
+import model.Car;
+import model.RoadItem;
 
 
 public class Simulation extends Thread {

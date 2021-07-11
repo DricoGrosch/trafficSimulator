@@ -1,9 +1,9 @@
-package br.udesc.dsd.rmts.controller;
+package controller;
 
-import br.udesc.dsd.rmts.controller.observer.Observed;
-import br.udesc.dsd.rmts.model.Car;
-import br.udesc.dsd.rmts.model.RoadItem;
-import br.udesc.dsd.rmts.model.abstractfactory.AbstractRoadItemFactory;
+import controller.observer.Observed;
+import model.Car;
+import model.RoadItem;
+import model.abstractfactory.AbstractRoadItemFactory;
 
 import java.io.File;
 import java.util.List;

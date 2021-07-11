@@ -1,4 +1,4 @@
-package br.udesc.dsd.rmts.controller.observer;
+package controller.observer;
 
 
 public interface Observed {

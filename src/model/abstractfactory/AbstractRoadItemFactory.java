@@ -1,6 +1,6 @@
-package br.udesc.dsd.rmts.model.abstractfactory;
+package model.abstractfactory;
 
-import br.udesc.dsd.rmts.model.RoadItem;
+import model.RoadItem;
 
 
 public abstract class AbstractRoadItemFactory {

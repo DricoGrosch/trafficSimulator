@@ -1,7 +1,7 @@
-package br.udesc.dsd.rmts.model.abstractfactory;
+package model.abstractfactory;
 
-import br.udesc.dsd.rmts.model.RoadItem;
-import br.udesc.dsd.rmts.model.RoadSemaphore;
+import model.RoadItem;
+import model.RoadSemaphore;
 
 
 public class RoadItemSemaphoreFactory extends AbstractRoadItemFactory {
