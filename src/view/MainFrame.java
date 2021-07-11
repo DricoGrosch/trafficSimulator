@@ -10,7 +10,7 @@ import controller.MeshController;
 import controller.observer.*;
 
 
-public class MainFrame extends JFrame implements Observer {
+public class MainFrame extends JFrame implements TableObserver {
 
     private static final long serialVersionUID = 1L;
 

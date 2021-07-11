@@ -1,6 +1,6 @@
 package controller;
 
-import controller.observer.Observer;
+import controller.observer.TableObserver;
 import model.Car;
 import model.RoadItem;
 import model.abstractfactory.AbstractRoadItemFactory;
@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 public class MeshController {
 
     private static MeshController instance;
-    private List<Observer> observers;
+    private List<TableObserver> observers;
     private RoadItem matrix[][];
     private File file = null;
     private Simulation simulation;
@@ -182,10 +182,6 @@ public class MeshController {
     }
 
 
-    public boolean isTerminate() {
-        return terminate;
-    }
-
 
     public void setPathName(File file) {
         this.file = file;
@@ -236,20 +232,20 @@ public class MeshController {
     }
 
 
-    public void addObserver(Observer observer) {
+    public void addObserver(TableObserver observer) {
         this.observers.add(observer);
     }
 
 
     public void notifyMessage(String message) {
-        for (Observer observer : observers) {
+        for (TableObserver observer : observers) {
             observer.message(message);
         }
     }
 
 
     public void notifyRoadMeshUpdate() {
-        for (Observer observer : observers) {
+        for (TableObserver observer : observers) {
             observer.roadMeshUpdate();
         }
     }
@@ -264,9 +260,4 @@ public class MeshController {
         return this.matrix;
     }
 
-
-    public void setPositions(int x, int y, List<RoadItem> positions) {
-        // TODO Auto-generated method stub
-
-    }
 }
