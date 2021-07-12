@@ -16,17 +16,16 @@ public class MainFrame extends JFrame implements TableObserver {
 
     private MeshController meshController;
     private RoadMeshPanel roadMeshPanel;
-    private JPanel main;
 
     public MainFrame() {
         this.meshController = MeshController.getInstance();
         this.meshController.addObserver(this);
 
         super.setFocusable(true);
-        super.setFocusTraversalKeysEnabled(false);
+//        super.setFocusTraversalKeysEnabled(false);
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        super.setResizable(false);
-        super.setLayout(new BorderLayout());
+//        super.setResizable(false);
+//        super.setLayout(new BorderLayout());
         super.getContentPane().setBackground(Color.WHITE);
         super.addWindowListener(new WindowAdapter() {
             @Override

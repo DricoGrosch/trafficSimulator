@@ -36,6 +36,8 @@ public class RoadMeshPanel extends JPanel {
     public RoadMeshPanel() {
         this.meshController = MeshController.getInstance();
         this.meshController.readAndCreateMatrix();
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setOpaque(false);
         this.initComponents();
     }
 
