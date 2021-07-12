@@ -3,7 +3,7 @@ package controller;
 import controller.observer.TableObserver;
 import model.Car;
 import model.RoadItem;
-import model.abstractfactory.AbstractRoadItemFactory;
+import model.AbstractRoadItem;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,7 +20,7 @@ public class MeshController {
     private File file = null;
     private Simulation simulation;
     private List<Car> threadList;
-    private AbstractRoadItemFactory factory;
+    private AbstractRoadItem roadItem;
     private ExecutorService executorService;
     private int lines;
     private int columns;
@@ -51,7 +51,7 @@ public class MeshController {
                 matrix = new RoadItem[lines][columns];
                 for (int i = 0; i < lines; i++) {
                     for (int j = 0; j < columns; j++) {
-                        matrix[i][j] = factory.createRoad(i, j);
+                        matrix[i][j] = roadItem.createRoad(i, j);
                         int valueOfPositionOnMesh = input.nextInt();
                         //        verifica pontos de entrada e saída conforme o arquivo de da malha em questão
                         switch (valueOfPositionOnMesh) {
@@ -226,8 +226,8 @@ public class MeshController {
     }
 
 
-    public void setFactory(AbstractRoadItemFactory factory) {
-        this.factory = factory;
+    public void setRoadItem(AbstractRoadItem roadItem) {
+        this.roadItem = roadItem;
     }
 
 

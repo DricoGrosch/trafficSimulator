@@ -1,8 +1,8 @@
 package view;
 
 import controller.MeshController;
-import model.abstractfactory.RoadItemMonitorFactory;
-import model.abstractfactory.RoadItemSemaphoreFactory;
+import model.RoadItemMonitor;
+import model.RoadItemSemaphore;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -101,9 +101,9 @@ public class ChoiceFrame extends JFrame {
                 this.meshController.setNumberOfCars(Integer.parseInt(numberOfCars.getText()));
                 this.meshController.setTimeInterval(Integer.parseInt(timeInterval.getText()));
                 if (mechanismSemaphore.isSelected()) {
-                    this.meshController.setFactory(new RoadItemSemaphoreFactory());
+                    this.meshController.setRoadItem(new RoadItemSemaphore());
                 } else if (mechanismMonitor.isSelected()) {
-                    this.meshController.setFactory(new RoadItemMonitorFactory());
+                    this.meshController.setRoadItem(new RoadItemMonitor());
                 }
                 MainFrame mainFrame = new MainFrame();
                 mainFrame.setVisible(true);

@@ -1,9 +1,9 @@
-package model.abstractfactory;
+package model;
 
 import model.RoadItem;
 
 
-public abstract class AbstractRoadItemFactory {
+public abstract class AbstractRoadItem {
 
     public abstract RoadItem createRoad(int x, int y);
 
