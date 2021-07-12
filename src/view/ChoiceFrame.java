@@ -53,9 +53,7 @@ public class ChoiceFrame extends JFrame {
         });
 
         this.meshController = MeshController.getInstance();
-
         initComponents();
-        addComponents();
     }
 
     private void initComponents() {
@@ -96,18 +94,16 @@ public class ChoiceFrame extends JFrame {
         this.buttonStart.setText("Start simulation");
         this.buttonStart.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.buttonStart.addActionListener((ActionEvent e) -> {
-            if (validateFields()) {
-                super.setVisible(false);
-                this.meshController.setNumberOfCars(Integer.parseInt(numberOfCars.getText()));
-                this.meshController.setTimeInterval(Integer.parseInt(timeInterval.getText()));
-                if (mechanismSemaphore.isSelected()) {
-                    this.meshController.setRoadItem(new RoadItemSemaphore());
-                } else if (mechanismMonitor.isSelected()) {
-                    this.meshController.setRoadItem(new RoadItemMonitor());
-                }
-                MainFrame mainFrame = new MainFrame();
-                mainFrame.setVisible(true);
+            super.setVisible(false);
+            this.meshController.setNumberOfCars(Integer.parseInt(numberOfCars.getText()));
+            this.meshController.setTimeInterval(Integer.parseInt(timeInterval.getText()));
+            if (mechanismSemaphore.isSelected()) {
+                this.meshController.setRoadItem(new RoadItemSemaphore());
+            } else if (mechanismMonitor.isSelected()) {
+                this.meshController.setRoadItem(new RoadItemMonitor());
             }
+            MainFrame mainFrame = new MainFrame();
+            mainFrame.setVisible(true);
         });
 
         this.buttonSelectMeshFile = new JButton();
@@ -117,10 +113,6 @@ public class ChoiceFrame extends JFrame {
             this.fileChooser = new FileChooser();
             this.buttonSelectMeshFile.setText(this.fileChooser.getChoosedFileName());
         });
-
-    }
-
-    private void addComponents() {
         this.mechanisms.add(mechanismMonitor);
         this.mechanisms.add(mechanismSemaphore);
         this.mechanisms.setBackground(Color.white);
@@ -138,39 +130,6 @@ public class ChoiceFrame extends JFrame {
         this.choice.add(buttonStart);
         this.choice.setBackground(Color.white);
         super.add(this.choice);
-    }
-
-    private boolean validateFields() {
-        if ((this.numberOfCars.getText().equals("") || this.timeInterval.getText().equals("")) || (!this.mechanismSemaphore.isSelected() && !this.mechanismMonitor.isSelected())) {
-            JOptionPane.showMessageDialog(this, "All fields are required");
-            return false;
-        }
-
-        if (!isNumeric(this.numberOfCars.getText())) {
-            JOptionPane.showMessageDialog(this, "Number of cars should be a number");
-            return false;
-        }
-
-        if (!isNumeric(this.timeInterval.getText())) {
-            JOptionPane.showMessageDialog(this, "Vehicle insertion range should be a number");
-            return false;
-        }
-
-        if (this.meshController.getFile() == null) {
-            JOptionPane.showMessageDialog(this, "Choose a mesh file to run the simulation");
-            return false;
-        }
-
-        return true;
-    }
-
-    private boolean isNumeric(String strNum) {
-        try {
-            Double.parseDouble(strNum);
-        } catch (NumberFormatException | NullPointerException nfe) {
-            return false;
-        }
-        return true;
     }
 
 }
